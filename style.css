@@ -10,7 +10,7 @@ body {
  
 .container { 
   padding: 10px; 
-  width: 50%; 
+  width: 80%; 
   margin: 0 auto; 
   background-color: #ffffff; 
   border-radius: 10px; 
@@ -51,16 +51,15 @@ button:hover {
 } 
  
  
-
-.heroContainer {
-    width: 65%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    text-align: left;
-}
+.heroContainer { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    text-align: left; 
+} 
+ 
+ 
 .heroImg { 
     max-width: 25%; 
     height: auto; 
@@ -96,4 +95,33 @@ button:hover {
  
 .statValue { 
     margin-left: 5px; 
+} 
+ 
+ 
+ 
+ 
+ /* Style for the loading spinner container */ 
+ .loading-container { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 40vh; 
+  top:40vh; 
+} 
+ 
+/* Style for the loading spinner */ 
+.loading-spinner { 
+   
+  border: 4px solid #f3f3f3; 
+  border-top: 4px solid #3498db; 
+  border-radius: 50%; 
+  width: 40px; 
+  height: 40px; 
+  animation: spin 2s linear infinite; 
+} 
+ 
+/* CSS animation for spinning */ 
+@keyframes spin { 
+  0% { transform: rotate(0deg); } 
+  100% { transform: rotate(360deg); } 
 }

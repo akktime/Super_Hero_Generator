@@ -6,12 +6,17 @@ const randomSearch = document.getElementById("randomSearch");
 const output = document.getElementById("output"); 
  
 userSearch.addEventListener("click", async function () { 
+ 
   const hero_name = userInput.value; 
  
   if (hero_name === "") { 
     output.textContent = "Please enter a SuperHero name."; 
     return; 
   } 
+ 
+  output.innerHTML = ` <div class="loading-container"> 
+                      <div class="loading-spinner"></div> 
+                      </div>`; 
  
   try { 
     const response = await fetch(`${API_URL}/search/${hero_name}`); 
@@ -58,6 +63,9 @@ const statsToEmoji = {
 }; 
  
 randomSearch.addEventListener("click", async function () { 
+  output.innerHTML = ` <div class="loading-container"> 
+                      <div class="loading-spinner"></div> 
+                      </div>`; 
   try { 
     const randomId = Math.floor(Math.random() * 731) + 1; 
     const response = await fetch(`${API_URL}/${randomId}`); 
@@ -66,8 +74,10 @@ randomSearch.addEventListener("click", async function () {
       throw new Error("Network response not ok"); 
     } 
  
-    const hero = await response.json(); 
-    output.innerHTML = ` 
+    hero = await response.json(); 
+    console.log(hero); 
+ 
+    output.innerHTML  = ` 
           <div class ="heroContainer" > 
             <img class ="heroImg" src = ${hero.image.url}> 
             <div class = "heroStats"> 
